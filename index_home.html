@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas | Portfólio</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="styles_home/styles_home.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <canvas id="matrix-canvas"></canvas>
+        <div class="header-content">
+            <img src="img/logo1.svg" alt="minha logo" class="logo">
+            <h1>MandiDEV</h1>
+            <p>Estudante de TI & Desenvolvedor</p>
+            <a href="#projetos" class="btn">Ver Projetos</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>Estudante de Engenharia de software. Atuo desenvolvendo soluções diretas e eficientes, aplicando pensamento analítico na construção de sistemas robustos — desde interfaces web até automação e algoritmos de back-end.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills">
+
+
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C / C++</span>
+                <span class="skill-tag">HTML & CSS</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Manutenção de Hardware</span>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2>Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Soluction Network</h3>
+                    <p>Ferramenta de automação para diagnóstico de rede e sistema. O script otimiza processos realizando limpeza de cache e gerenciamento de adaptadores de rede de forma direta e sem interface redundante.</p>
+                    <span class="tech-stack">Stack: Python</span>
+                </div>
+                <div class="project-card">
+                    <h3>Juliana Cristina Modas</h3>
+                    <a href="https://github.com/Manthioca/JSC_site_reponsivel" target="_blank" class="btn">Ver no GitHub</a>
+                    <p>Desenvolvimento da interface front-end de um portfólio profissional para uma marca de moda, garantindo a exibição limpa e estruturada do catálogo.</p>
+                    <span class="tech-stack">Stack: HTML, CSS</span>
+                </div>
+                <div class="project-card">
+                    <h3>Nutribom-budget-flask </h3>
+                    <a href="https://github.com/Manthioca/nutribom-budget-flask" target="_blank" class="btn">Ver no GitHub</a>
+                    <p>Implementação do algoritmo Shellsort focado na ordenação eficiente de códigos de produtos para resolução de problemas de inventário logístico.</p>
+                    <span class="tech-stack">Stack: C</span>
+                </div>
+                <div class="project-card">
+                    <h3>Vini Mundo</h3>
+                    <a href="https://github.com/Manthioca/Vini-Mundo" target="_blank" class="btn">Ver no GitHub</a>
+                    <p>Desenvolvimento e estruturação de um blog interativo voltado para a disseminação de conteúdo biológico e vida animal.</p>
+                    <span class="tech-stack">Stack: Web Development</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Para desenvolvimento de projetos, automação de sistemas ou networking, entre em contato:</p>
+            <a href="https://github.com/Manthioca" class="btn" style="background-color: #333;">GitHub</a>
+            <a href="https://www.linkedin.com/in/lucas-s-r-queiroz-8851b4338/" class="btn" style="background-color: #0077b5;">LinkedIn</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lucas. Todos os direitos reservados.</p>
+    </footer>
+    <!-- Cole isso logo acima do </body> -->
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const chars = 'MANDIOCADEV0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        const fontSize = 20;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(30, 41, 59, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.8)'; // Cor verde do texto
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 50);
+    </script>
+</body>
+
+</html>

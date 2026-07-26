@@ -88,6 +88,7 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e2e8f0;
+    ;
 }
 
 .project-card h3 {
@@ -148,7 +149,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
     /* Joga o efeito para trás */
     opacity: 0.5;
     /* Deixa o texto hacker meio transparente */
@@ -168,4 +169,36 @@ header {
     border: 4px transparent solid;
     margin-bottom: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.network {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.julisite {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.nutribomSistem {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.Vinisite {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border: 4px solid;
+    margin-bottom: 1rem;
 }
